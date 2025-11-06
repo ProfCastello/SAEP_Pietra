@@ -10,11 +10,12 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-EstoqueEquipEletro-372028be-9cb1-4c63-ad24-ffb404f23f58")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("EstoqueEquipEletro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac3beef9799bd8b271d8d8596447134bb316f754")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5843faf73400a94130e16181657bdd26a4acabe2")]
 [assembly: System.Reflection.AssemblyProductAttribute("EstoqueEquipEletro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EstoqueEquipEletro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
