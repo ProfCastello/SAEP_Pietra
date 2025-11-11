@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Sistema.Models.Movimentacao>
+
+@{
+    ViewData["Title"] = "Index";
+    var alerta = TempData["Alerta"] as string;
+}
+
+<h1>Registro de Movimentações</h1>
+
+@if (!String.IsNullOrEmpty(alerta))
+{
+    <div class="alert alert-warning"> @alerta </div>
+}
+<p>
+    <a asp-action="Create">Adicionar</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataMovimentacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataMovimentacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MovimentacaoId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.MovimentacaoId">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MovimentacaoId">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

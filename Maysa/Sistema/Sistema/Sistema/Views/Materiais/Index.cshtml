@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Sistema.Models.Material>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastro de Materiais</h1>
+
+<p>
+    <a asp-action="Create">Adicionar</a>
+</p>
+<!--Formulário de Busca-->
+<form asp-controller="Materiais" asp-action="Buscar" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="busca" class="form-control" placeholder="Buscar por nome ou categoria..." value="@ViewData["campoBusca"]" />
+        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especificacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vencimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstoqueAtual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstoqueMinimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataValidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Especificacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vencimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstoqueAtual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstoqueMinimo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataValidade)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaterialId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaterialId">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaterialId">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
